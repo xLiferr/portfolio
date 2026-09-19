@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio de Lucas Ramírez Varas, desarrollador e ingeniero en computación e informática." />
+    <meta name="theme-color" content="#0a0b10" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d7ff42'/%3E%3Cpath d='M18 17h9v30h-9zM35 17h11c7 0 10 4 10 10s-3 10-10 10h-2v10h-9zm9 8v5h2c1.5 0 2-1 2-2.5S47.5 25 46 25z' fill='%230a0b10'/%3E%3C/svg%3E" />
+    <title>Lucas Ramírez Varas — Portfolio</title>
+    <style>
+      :root { --ink:#0a0b10; --paper:#f5f4ef; --muted:#a5a6af; --line:rgba(245,244,239,.16); --lime:#d7ff42; --copy:#d1d1d6; --soft-copy:#dedee1; --card-copy:#b8b9c0; --chip-copy:#d7d7dc; --group-copy:#c4c5ca; --max:1200px; }
+      body[data-theme="light"] { --ink:#fbfcfe; --paper:#152131; --muted:#627083; --line:rgba(21,33,49,.15); --lime:#137bb8; --copy:#344255; --soft-copy:#27364a; --card-copy:#536276; --chip-copy:#344255; --group-copy:#45556a; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; background:var(--ink); color:var(--paper); font-family:"DM Sans",Arial,sans-serif; font-size:16px; line-height:1.5; }
+      a { color:inherit; }
+      .shell { max-width:var(--max); margin:auto; padding:0 32px; }
+      .nav { min-height:78px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+      .brand { font-family:"DM Mono",monospace; font-size:.84rem; text-decoration:none; letter-spacing:-.04em; }
+      .brand span { color:var(--lime); }
+      .nav-links { display:flex; align-items:center; gap:18px; font-family:"DM Mono",monospace; font-size:.72rem; }
+      .nav-links a { color:var(--muted); text-decoration:none; transition:color .2s; }
+      .nav-links a:hover { color:var(--paper); }
+      .nav-links .github { color:var(--ink); background:var(--lime); padding:8px 12px; border-radius:99px; }
+      .controls { display:flex; align-items:center; gap:6px; }
+      .control { min-width:38px; height:32px; border:1px solid var(--line); border-radius:99px; background:transparent; color:var(--muted); cursor:pointer; font:500 .68rem "DM Mono",monospace; transition:background .2s,color .2s,border-color .2s; }
+      .control:hover, .control[aria-pressed="true"] { color:var(--ink); background:var(--paper); border-color:var(--paper); }
+      .hero { position:relative; min-height:680px; display:grid; grid-template-columns:1fr 290px; align-items:end; gap:48px; padding:80px 0 60px; }
+      .eyebrow { margin:0 0 22px; font-family:"DM Mono",monospace; font-size:.73rem; color:var(--lime); letter-spacing:.04em; text-transform:uppercase; }
+      h1 { max-width:880px; margin:0; font-family:Fraunces,Georgia,serif; font-size:clamp(3.75rem,9vw,8.3rem); font-weight:600; letter-spacing:-.075em; line-height:.87; }
+      h1 em { color:var(--lime); font-style:italic; }
+      .hero-copy { max-width:540px; margin:31px 0 0; color:var(--copy); font-size:1.14rem; }
+      .hero-side { display:flex; flex-direction:column; gap:20px; padding-bottom:8px; }
+      .availability { border-top:1px solid var(--line); padding-top:14px; }
+      .availability span { display:block; color:var(--muted); font-family:"DM Mono",monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; }
+      .availability strong { display:block; margin-top:8px; font-size:.94rem; font-weight:500; }
+      .signal { width:9px; height:9px; display:inline-block; margin-right:8px; border-radius:50%; background:var(--lime); box-shadow:0 0 0 5px rgba(215,255,66,.12); }
+      .scroll-note { color:var(--muted); font-family:"DM Mono",monospace; font-size:.7rem; text-decoration:none; }
+      .scroll-note::after { content:" ↘"; color:var(--lime); font-size:1.1rem; }
+      .pi-stream { position:absolute; top:180px; left:0; width:100%; overflow:hidden; color:var(--muted); font:400 .72rem "DM Mono",monospace; white-space:nowrap; opacity:.74; }
+      .pi-stream::before { content:""; display:inline-block; width:34px; height:1px; margin:0 11px 3px 0; background:var(--lime); vertical-align:middle; }
+      .pi-line { display:inline-block; }
+      .pi-symbol { color:var(--paper); }
+      section { padding:120px 0; border-top:1px solid var(--line); }
+      .section-head { display:grid; grid-template-columns:170px 1fr; gap:34px; margin-bottom:50px; }
+      .index { color:var(--lime); font-family:"DM Mono",monospace; font-size:.72rem; }
+      h2 { margin:0; max-width:760px; font-family:Fraunces,Georgia,serif; font-size:clamp(2.3rem,4.4vw,4.5rem); line-height:.96; letter-spacing:-.055em; }
+      h2 .soft { color:var(--muted); }
+      .about-grid { display:grid; grid-template-columns:170px minmax(0,1fr); gap:34px; }
+      .about-text { max-width:730px; font-size:1.32rem; line-height:1.48; color:var(--soft-copy); }
+      .about-text p { margin:0 0 20px; }
+      .facts { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:56px; background:var(--line); border:1px solid var(--line); }
+      .fact { min-height:128px; padding:20px; background:var(--ink); }
+      .fact span { display:block; color:var(--muted); font-family:"DM Mono",monospace; font-size:.67rem; text-transform:uppercase; letter-spacing:.04em; }
+      .fact strong { display:block; margin-top:12px; font-size:1rem; font-weight:500; }
+      .project-list { border-top:1px solid var(--line); }
+      .project { position:relative; display:grid; grid-template-columns:90px minmax(180px,1fr) minmax(220px,1.25fr) 90px; gap:22px; align-items:center; min-height:150px; padding:24px 12px 24px 0; border-bottom:1px solid var(--line); text-decoration:none; transition:padding .25s, background .25s; }
+      .project:hover { padding-left:16px; background:rgba(245,244,239,.04); }
+      .project-num { color:var(--muted); font-family:"DM Mono",monospace; font-size:.75rem; }
+      .project h3 { margin:0; font-family:Fraunces,Georgia,serif; font-size:1.75rem; font-weight:600; letter-spacing:-.04em; }
+      .project p { margin:0; color:var(--card-copy); font-size:.95rem; }
+      .project-arrow { color:var(--lime); justify-self:end; font-size:1.7rem; transition:transform .25s; }
+      .project:hover .project-arrow { transform:translate(4px,-4px); }
+      .project-disclaimer { max-width:720px; margin:25px 0 0 auto; color:var(--muted); font-size:.88rem; font-style:italic; line-height:1.6; }
+      .project-disclaimer strong { color:var(--paper); font-style:normal; font-weight:500; }
+      .chips { display:flex; flex-wrap:wrap; gap:8px; }
+      .chip { border:1px solid var(--line); padding:7px 10px; border-radius:99px; color:var(--chip-copy); font-family:"DM Mono",monospace; font-size:.7rem; }
+      .skills { display:grid; grid-template-columns:170px 1fr; gap:34px; }
+      .skill-groups { display:grid; grid-template-columns:repeat(3,1fr); gap:34px; }
+      .skill-group { border-top:2px solid var(--lime); padding-top:15px; }
+      .skill-group h3 { margin:0 0 19px; font-family:"DM Mono",monospace; font-size:.73rem; font-weight:500; text-transform:uppercase; letter-spacing:.04em; }
+      .skill-group p { margin:0; color:var(--group-copy); font-size:1rem; line-height:1.8; }
+      .contact { padding:110px 0 34px; border-top:1px solid var(--line); }
+      .contact h2 { max-width:900px; font-size:clamp(3.2rem,7vw,7rem); }
+      .contact-layout { display:grid; grid-template-columns:minmax(260px,.85fr) minmax(340px,1.15fr); gap:70px; align-items:start; margin-top:35px; }
+      .contact-copy { margin:0; max-width:340px; color:var(--card-copy); font-size:1.05rem; }
+      .contact-github { display:inline-block; margin-top:26px; color:var(--muted); font:500 .74rem "DM Mono",monospace; text-decoration:none; }
+      .contact-github:hover { color:var(--lime); }
+      .contact-form { border-top:2px solid var(--lime); padding-top:18px; }
+      .field { display:block; margin-bottom:19px; }
+      .field label { display:block; margin-bottom:8px; color:var(--muted); font:500 .7rem "DM Mono",monospace; text-transform:uppercase; letter-spacing:.04em; }
+      .field input, .field textarea { width:100%; border:1px solid var(--line); border-radius:0; padding:13px 14px; background:transparent; color:var(--paper); font:400 1rem "DM Sans",sans-serif; outline:none; transition:border-color .2s,box-shadow .2s; }
+      .field textarea { min-height:122px; resize:vertical; }
+      .field input::placeholder, .field textarea::placeholder { color:var(--muted); }
+      .field input:focus, .field textarea:focus { border-color:var(--lime); box-shadow:0 0 0 3px color-mix(in srgb,var(--lime) 16%,transparent); }
+      .form-submit { border:0; border-radius:99px; padding:12px 17px; background:var(--lime); color:var(--ink); cursor:pointer; font:500 .75rem "DM Mono",monospace; transition:transform .2s,filter .2s; }
+      .form-submit:hover { filter:brightness(1.07); transform:translateY(-1px); }
+      .form-status { display:inline-block; margin:0 0 0 12px; color:var(--muted); font:400 .74rem "DM Mono",monospace; }
+      footer { display:flex; justify-content:space-between; gap:20px; padding:30px 0; border-top:1px solid var(--line); color:var(--muted); font-family:"DM Mono",monospace; font-size:.68rem; }
+      .reveal { opacity:0; transform:translateY(14px); transition:opacity .65s ease,transform .65s ease; }
+      .reveal.visible { opacity:1; transform:none; }
+      @media (max-width:760px) { .shell{padding:0 20px}.nav{min-height:67px}.nav-links a:not(.github){display:none}.controls{gap:4px}.control{min-width:34px;height:30px}.hero{min-height:auto;grid-template-columns:1fr;padding:50px 0 42px;gap:32px}.pi-stream{position:relative;top:auto;left:auto;width:100%;order:1;margin:2px 0 28px}.hero-content{order:2}.hero-side{order:3;justify-content:flex-start;align-items:stretch}.availability{margin:0}.section-head,.about-grid,.skills{grid-template-columns:1fr;gap:15px}section{padding:80px 0}.section-head{margin-bottom:38px}.about-text{font-size:1.14rem}.facts{grid-template-columns:1fr}.fact{min-height:auto}.project{grid-template-columns:45px 1fr 25px;gap:12px;min-height:130px}.project p{grid-column:2 / 4}.project-arrow{grid-column:3;grid-row:1}.skill-groups,.contact-layout{grid-template-columns:1fr;gap:28px}.contact{padding-top:80px}footer{flex-direction:column} }
+      @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none} }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="brand" href="#inicio">LUCAS RAMÍREZ</a>
+        <div class="nav-links">
+          <a href="#experiencia" data-en="Experience">Experiencia</a><a href="#proyectos" data-en="Projects">Proyectos</a><a href="#perfil" data-en="Profile">Perfil</a><a href="#contacto" data-en="Contact">Contacto</a>
+          <div class="controls" aria-label="Preferencias del sitio"><button class="control" id="theme-toggle" type="button" aria-label="Cambiar a tema claro" title="Cambiar tema">◐</button><button class="control" id="language-toggle" type="button" aria-label="Cambiar a inglés" title="Cambiar idioma">EN</button></div>
+          <a class="github" href="https://github.com/xLiferr" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </nav>
+
+      <main id="inicio">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="pi-stream" aria-hidden="true"><span id="pi-line" class="pi-line"><span class="pi-symbol">π = 3.</span><span id="pi-decimals"></span></span></div>
+          <div class="hero-content">
+            <p class="eyebrow" data-en="Portfolio / Coquimbo, Chile">Portfolio / Coquimbo, Chile</p>
+            <h1 id="hero-title" data-en="Clear ideas.<br /><em>Useful</em> software.">Ideas claras.<br /><em>Software</em> útil.</h1>
+            <p class="hero-copy" data-en="Lucas Ramírez Varas. Computer Science Engineer with experience in backend, production platforms and operations automation.">Lucas Ramírez Varas. Ingeniero Civil en Computación e Informática con experiencia en backend, plataformas productivas y automatización de operaciones.</p>
+          </div>
+          <div class="hero-side">
+            <div class="availability"><span data-en="Focus">Enfoque</span><strong data-en="<i class='signal'></i>Backend &amp; operations"><i class="signal"></i>Backend &amp; operaciones</strong></div>
+            <div class="availability"><span data-en="Specialty">Especialidad</span><strong data-en="<i class='signal'></i>APIs, automation &amp; data"><i class="signal"></i>APIs, automatización &amp; datos</strong></div>
+            <div class="availability"><span data-en="How I work">Cómo trabajo</span><strong data-en="<i class='signal'></i>Observability &amp; incident resolution"><i class="signal"></i>Observabilidad &amp; resolución de incidentes</strong></div>
+            <a class="scroll-note" href="#experiencia" data-en="view experience">ver experiencia</a>
+          </div>
+        </section>
+
+        <section id="experiencia" class="reveal" aria-labelledby="experience-title">
+          <div class="section-head"><span class="index" data-en="01 / Experience">01 / Experiencia</span><h2 id="experience-title" data-en="Software that supports <span class='soft'>real operations.</span>">Software que sostiene <span class="soft">operaciones reales.</span></h2></div>
+          <div class="project-list">
+            <a class="project" href="https://www.sodimac.cl/sodimac-cl/" target="_blank" rel="noreferrer"><span class="project-num" data-en="2026 — present">2026 — hoy</span><h3 data-en="Advanced software support · L2">Soporte avanzado de software · L2</h3><p data-en="Falabella and Sodimac corporate platforms: production incident resolution and Python automations for recurring cases.">Plataformas corporativas de Falabella y Sodimac: resolución de incidencias en producción y automatizaciones en Python para casos recurrentes.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project" href="https://www.pagerduty.com/" target="_blank" rel="noreferrer"><span class="project-num">2025 — 2026</span><h3 data-en="Software engineer · PagerDuty">Ingeniero de software · PagerDuty</h3><p data-en="Microservices, REST APIs and automated integrations for an incident management and observability platform.">Microservicios, APIs REST e integraciones automatizadas para una plataforma de gestión de incidentes y observabilidad.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project" href="https://www.buk.cl/" target="_blank" rel="noreferrer"><span class="project-num">2025</span><h3 data-en="Software engineer · Buk">Ingeniero de software · Buk</h3><p data-en="Development and maintenance for the attendance module, including production platform monitoring and incident resolution.">Desarrollo y mantenimiento en el módulo de asistencia, con monitoreo de plataformas productivas y resolución de incidentes.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project" href="https://www.itau.cl/" target="_blank" rel="noreferrer"><span class="project-num">2022 — 2024</span><h3 data-en="Backend developer · Itaú Corpbanca">Desarrollador backend · Itaú Corpbanca</h3><p data-en="Initiatives for the mobile app, working with scalable services, APIs and agile product teams.">Iniciativas para la app móvil, trabajando con servicios escalables, APIs y equipos ágiles de producto.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+
+        <section id="proyectos" class="reveal" aria-labelledby="projects-title">
+          <div class="section-head"><span class="index" data-en="02 / Projects">02 / Proyectos</span><h2 id="projects-title" data-en="A selection of projects <span class='soft'>to learn, build and solve.</span>">Una selección de proyectos <span class="soft">para aprender, construir y resolver.</span></h2></div>
+          <div class="project-list">
+            <a class="project" href="https://github.com/xLiferr/Analiticoo" target="_blank" rel="noreferrer"><span class="project-num">01</span><h3 data-en="Data analysis">Análisis de datos</h3><p data-en="ETL processes and information visualization with Power BI.">Procesos ETL y visualización de información con Power BI.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project" href="https://github.com/nicoolasps/sistema_ayudantes" target="_blank" rel="noreferrer"><span class="project-num">02</span><h3 data-en="Teaching assistant management">Gestión de ayudantes</h3><p data-en="A platform to manage teaching assistant applications and assignments in a university setting.">Plataforma para organizar postulaciones y ayudantías en un contexto universitario.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+            <a class="project" href="https://github.com/IkariGames/csaplicadas" target="_blank" rel="noreferrer"><span class="project-num">03</span><h3>Angry Cells</h3><p data-en="Two Unity-made 2D games inspired by Angry Birds and trickshot mechanics.">Dos videojuegos 2D hechos en Unity, con mecánicas inspiradas en Angry Birds y trickshots.</p><span class="project-arrow" aria-hidden="true">↗</span></a>
+          </div>
+          <p class="project-disclaimer" data-en="<strong>A small disclaimer:</strong> most of these projects were made for university and quite a while ago. You may find some questionable software practices if you inspect them. Honestly, I am probably an even worse programmer now. <em>(Just kidding.)</em>"><strong>Un pequeño disclaimer:</strong> la mayor parte de estos proyectos fueron hechos con fines universitarios y hace varios años. Es posible que encuentres algunas malas prácticas de desarrollo de software si los revisas. Siendo sincero, ahora soy aún peor programando. <em>(Es broma.)</em></p>
+        </section>
+
+        <section id="perfil" class="reveal" aria-labelledby="profile-title">
+          <div class="section-head"><span class="index" data-en="03 / Profile">03 / Perfil</span><h2 id="profile-title" data-en="Technology with curiosity <span class='soft'>and sound judgment.</span>">Tecnología con curiosidad <span class="soft">y criterio.</span></h2></div>
+          <div class="about-grid"><span></span><div class="about-text"><p data-en="I enjoy exploring different areas of computing and identifying the tools that genuinely help solve each problem: from backend services to production-platform reliability.">Me interesa explorar distintas áreas de la informática y entender qué herramienta realmente ayuda a resolver cada problema: desde los servicios backend hasta la confiabilidad de plataformas en producción.</p><p data-en="I have worked on high-impact products, collaborating with technical and product teams to diagnose, automate and deliver sustainable solutions.">He trabajado en productos de alto impacto, colaborando con equipos técnicos y de producto para diagnosticar, automatizar y entregar soluciones sostenibles.</p><div class="facts"><div class="fact"><span data-en="Education">Formación</span><strong data-en="Computer Science Engineering">Ingeniería Civil en Computación e Informática</strong></div><div class="fact"><span data-en="University">Universidad</span><strong data-en="Universidad Católica del Norte · distinction">Universidad Católica del Norte · distinción</strong></div><div class="fact"><span data-en="Location">Ubicación</span><strong>Coquimbo, Chile</strong></div></div></div></div>
+        </section>
+
+        <section class="reveal" aria-labelledby="skills-title">
+          <div class="section-head"><span class="index" data-en="04 / Stack">04 / Stack</span><h2 id="skills-title" data-en="Tools I have used <span class='soft'>to bring ideas to production.</span>">Herramientas que he usado <span class="soft">para llevar ideas a producción.</span></h2></div>
+          <div class="skills"><span></span><div class="skill-groups"><article class="skill-group"><h3>Backend &amp; APIs</h3><p>Java<br />Python<br />Node.js<br />NestJS · .NET</p></article><article class="skill-group"><h3 data-en="Production &amp; data">Producción &amp; datos</h3><p>Oracle · PostgreSQL<br />AWS · Docker<br />Grafana · Sentry<br /><span data-en="Automation">Automatización</span></p></article><article class="skill-group"><h3 data-en="Web &amp; more">Web &amp; otros</h3><p>TypeScript · JavaScript<br />HTML &amp; CSS<br />Power BI · ETL<br />Git · Unity</p></article></div></div>
+        </section>
+
+        <section id="contacto" class="contact reveal" aria-labelledby="contact-title">
+          <p class="eyebrow" data-en="05 / Contact">05 / Contacto</p>
+          <h2 id="contact-title" data-en="Want to talk?">¿Hablamos?</h2>
+          <div class="contact-layout">
+            <div><p class="contact-copy" data-en="Tell me about your idea, role or project. I will get back to you as soon as I can.">Cuéntame sobre tu idea, rol o proyecto. Te responderé apenas pueda.</p><a class="contact-github" href="https://github.com/xLiferr" target="_blank" rel="noreferrer" data-en="Or find me on GitHub ↗">O encuéntrame en GitHub ↗</a></div>
+            <form id="contact-form" class="contact-form">
+              <div class="field"><label for="contact-name" data-en="Name">Nombre</label><input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Tu nombre" data-en-placeholder="Your name" /></div>
+              <div class="field"><label for="contact-email" data-en="Email">Correo</label><input id="contact-email" name="email" type="email" autocomplete="email" required placeholder="tu@correo.com" data-en-placeholder="you@email.com" /></div>
+              <div class="field"><label for="contact-message" data-en="Message">Mensaje</label><textarea id="contact-message" name="message" required placeholder="¿En qué podemos colaborar?" data-en-placeholder="How can we work together?"></textarea></div>
+              <button class="form-submit" type="submit" data-en="Send email ↗">Enviar correo ↗</button><span id="form-status" class="form-status" role="status" aria-live="polite"></span>
+            </form>
+          </div>
+        </section>
+      </main>
+      <footer><span>© <span id="year"></span> Lucas Ramírez Varas</span></footer>
+    </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const themeToggle = document.getElementById('theme-toggle');
+      const languageToggle = document.getElementById('language-toggle');
+      const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+      const savedLanguage = localStorage.getItem('portfolio-language') || 'es';
+      const translatable = [...document.querySelectorAll('[data-en]')];
+      translatable.forEach((element) => { element.dataset.es = element.innerHTML; });
+      document.querySelectorAll('[data-en-placeholder]').forEach((element) => { element.dataset.esPlaceholder = element.placeholder; });
+      document.querySelectorAll('[data-en-alt]').forEach((element) => { element.dataset.esAlt = element.alt; });
+      function applyTheme(theme) {
+        document.body.dataset.theme = theme;
+        themeToggle.textContent = theme === 'dark' ? '◐' : '◑';
+        const english = document.documentElement.lang === 'en';
+        themeToggle.setAttribute('aria-label', english ? (theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme') : (theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'));
+        themeToggle.setAttribute('aria-pressed', String(theme === 'light'));
+        localStorage.setItem('portfolio-theme', theme);
+      }
+      function applyLanguage(language) {
+        const english = language === 'en';
+        translatable.forEach((element) => { element.innerHTML = english ? element.dataset.en : element.dataset.es; });
+        document.querySelectorAll('[data-en-placeholder]').forEach((element) => { element.placeholder = english ? element.dataset.enPlaceholder : element.dataset.esPlaceholder; });
+        document.querySelectorAll('[data-en-alt]').forEach((element) => { element.alt = english ? element.dataset.enAlt : element.dataset.esAlt; });
+        document.documentElement.lang = language;
+        document.title = english ? 'Lucas Ramírez Varas — Portfolio' : 'Lucas Ramírez Varas — Portfolio';
+        languageToggle.textContent = english ? 'ES' : 'EN';
+        languageToggle.setAttribute('aria-label', english ? 'Switch to Spanish' : 'Cambiar a inglés');
+        themeToggle.setAttribute('aria-label', english ? (document.body.dataset.theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme') : (document.body.dataset.theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'));
+        languageToggle.setAttribute('aria-pressed', String(english));
+        localStorage.setItem('portfolio-language', language);
+      }
+      themeToggle.addEventListener('click', () => applyTheme(document.body.dataset.theme === 'dark' ? 'light' : 'dark'));
+      languageToggle.addEventListener('click', () => applyLanguage(document.documentElement.lang === 'es' ? 'en' : 'es'));
+      applyTheme(savedTheme);
+      applyLanguage(savedLanguage);
+      const contactForm = document.getElementById('contact-form');
+      const formStatus = document.getElementById('form-status');
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const details = new FormData(contactForm);
+        const subject = `Contacto desde portfolio: ${details.get('name')}`;
+        const body = `Nombre: ${details.get('name')}\nCorreo: ${details.get('email')}\n\nMensaje:\n${details.get('message')}`;
+        formStatus.textContent = document.documentElement.lang === 'en' ? 'Opening your email app…' : 'Abriendo tu aplicación de correo…';
+        window.location.href = `mailto:lucas.ramirez.varas@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+      const piStream = document.querySelector('.pi-stream');
+      const piLine = document.getElementById('pi-line');
+      const piDecimals = document.getElementById('pi-decimals');
+      const piDigits = '141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450284102701938521105559644622948954930381964428810975665933446128475648233786783165271201909145648566923460348610454326648213393607260249141273';
+      let piLength = 0;
+      function drawPi() {
+        piDecimals.textContent = piDigits.slice(0, piLength);
+        if (piLine.scrollWidth >= piStream.clientWidth - 1 || piLength >= piDigits.length) piLength = 0;
+        else piLength += 1;
+      }
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) piDecimals.textContent = piDigits.slice(0, 90);
+      else setInterval(drawPi, 55);
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    </script>
+  </body>
+</html>
